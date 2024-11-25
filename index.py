@@ -12,7 +12,7 @@ def calculate_entropy(pos_count, neg_count):
         entropy -= p_pos * log2(p_pos)
     if p_neg > 0:
         entropy -= p_neg * log2(p_neg)
-    return entropy
+    return round(entropy, 4)  # Pembulatan 4 digit
 
 
 def calculate_gain(total_entropy, split_counts):
@@ -24,7 +24,7 @@ def calculate_gain(total_entropy, split_counts):
         subset_entropy = calculate_entropy(counts[0], counts[1])
         weighted_entropy += (subset_samples / total_samples) * subset_entropy
 
-    return total_entropy - weighted_entropy
+    return round(total_entropy - weighted_entropy, 4)  # Pembulatan 4 digit
 
 
 # Data yang diberikan
